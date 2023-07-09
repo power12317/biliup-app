@@ -26,7 +26,7 @@ tracing-appender = "0.2"
 anyhow = "1.0"
 thiserror = "1.0"
 serde_yaml = "0.8"
-biliup = { git = "https://github.com/power12317/biliup-rs.git", rev = "044ce83" }
+biliup = { git = "https://github.com/power12317/biliup-rs.git", rev = "09ea966" }
 futures = "0.3.26"
 bytes = "1.4.0"
 
