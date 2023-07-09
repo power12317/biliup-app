@@ -1,5 +1,5 @@
 <script lang="ts">
-    import {currentTemplate, template, save_config, isLogin} from "./store.ts";
+    import {currentTemplate, template, save_config, isLogin} from "./store";
     import {fly} from 'svelte/transition';
     import {flip} from 'svelte/animate';
     import {invoke} from "@tauri-apps/api/tauri";
@@ -11,7 +11,7 @@
 
     let face = 'noface.jpg';
     let name = null;
-    invoke('get_myinfo', {fileName: "cookies.json"}).then((ret) => {
+    invoke('get_myinfo').then((ret) => {
         console.log(ret);
         fetch(<string>ret['data']['face'], {method: "GET", responseType: ResponseType.Binary}).then((res)=>{
             face = 'data:image/jpeg;base64,' + arrayBufferToBase64(res.data);
@@ -108,7 +108,7 @@
     async function openConfigDir(){
         await open(await configDir()+'biliup');
     }
-    let lines = ['ws', 'qn', 'auto', 'bda2', 'kodo', 'cos', 'cos-internal'];
+    let lines = ['ws', 'qn', 'qnhk', 'auto', 'bda2', 'kodo', 'cos', 'cos-internal'];
     let line = 'auto';
     let limit = 3;
 
