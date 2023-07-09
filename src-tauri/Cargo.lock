@@ -237,7 +237,7 @@ checksum = "8c3c1a368f70d6cf7302d78f8f7093da241fb8e8807c05cc9e51a125895a6d5b"
 [[package]]
 name = "biliup"
 version = "0.1.15"
-source = "git+https://github.com/power12317/biliup-rs.git?rev=3aec2ed#3aec2ed500a77d13b3f15721ce631485b7703b15"
+source = "git+https://github.com/power12317/biliup-rs.git?rev=044ce83#044ce83a3081a3c5e8fa32be7148e8a5cf6875dd"
 dependencies = [
  "anyhow",
  "async-trait",
