@@ -136,6 +136,7 @@ async fn upload(
             "bda2" => line::bda2(),
             "ws" => line::ws(),
             "qn" => line::qn(),
+            "qnhk" => line::qnhk(),
             "cos" => line::cos(),
             "cos-internal" => line::cos_internal(),
             _ => unreachable!(),
