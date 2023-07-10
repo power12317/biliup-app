@@ -22,6 +22,7 @@
     let noReprint = false;
     let openElec = false;
     let isHiRes = selectedTemplate?.lossless_music === 0 ? 0 : 1;
+    //let isDolby = selectedTemplate?.dolby === 1 ? 1 : 0,
     function handleClick(e) {
         selectedTemplate.copyright = e.target.checked ? 2 : 1;
     }
@@ -140,7 +141,10 @@
         }else {
             invokeMethod = 'submit';
             msg = '投稿';
-            hires_params = { lossless_music: isHiRes ? 1 : 0 };
+            hires_params = { 
+                        lossless_music: isHiRes ? 1 : 0,
+                        // dolby: isDolby ? 1 : 0,    
+                            };
         }
         invoke(invokeMethod, {
                 studio: {
@@ -473,6 +477,12 @@
                           class="textarea textarea-bordered w-full"
                           cols="40" placeholder="动态描述" rows="1"></textarea>
             </div>
+            {#if (!hiResFieldDisabled)}
+            <div class="flex items-center">
+                <input type="checkbox" class="toggle my-2" bind:checked="{isHiRes}">
+                <span class="ml-2 text-sm font-bold text-gray-500 tracking-wide">Hi-Res无损音质</span>
+            </div>
+            {/if}
             <div class="flex items-center">
                 <input type="checkbox" class="toggle my-2" bind:checked="{isDtime}">
                 <span class="ml-2 text-sm font-bold text-gray-500 tracking-wide">开启定时发布</span>
@@ -481,12 +491,6 @@
                     <input class="mx-3 border rounded-lg border-gray-300 py-1 px-2" type="time" bind:value={time}/>
                 {/if}
             </div>
-            {#if (!hiResFieldDisabled)}
-            <div class="flex items-center">
-                <input type="checkbox" class="toggle my-2" bind:checked="{isHiRes}">
-                <span class="ml-2 text-sm font-bold text-gray-500 tracking-wide">Hi-Res无损音质</span>
-            </div>
-            {/if}
             {#if (autoSubmit)}
                 <div class="flex justify-center items-center">
                     <button type="button" class="inline-flex items-center px-4 py-2 font-semibold leading-6 text-sm shadow rounded-md text-white bg-indigo-500 hover:bg-indigo-400 transition ease-in-out duration-150 cursor-not-allowed" disabled>
