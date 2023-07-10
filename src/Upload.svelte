@@ -19,7 +19,8 @@
     // let title: string = ;
     let nocopyright: boolean;
     $ : nocopyright = selectedTemplate?.copyright === 2;
-    let noReprint = true;
+    let noReprint = false;
+    let openElec = false;
     function handleClick(e) {
         selectedTemplate.copyright = e.target.checked ? 2 : 1;
     }
@@ -117,13 +118,16 @@
         selectedTemplate.videos = selectedTemplate?.files;
         let dtime = null;
         let noreprint = null;
+        let openelec = null;
         if (isDtime) {
             dtime = new Date(`${date} ${time}`).valueOf()/1000;
         }
         if (!nocopyright) {
             noreprint = noReprint ? 1 : 0;
         }
-
+        if (!openelec) {
+            openelec = openElec ? 1 : 0;
+        }
         let tag = tags.join(',');
 
         let invokeMethod;
@@ -143,6 +147,7 @@
                     tag: tag,
                     dtime: dtime,
                     no_reprint: noreprint,
+                    open_elec: openelec,
                     ...hires_params,
                 }
         })
@@ -402,8 +407,14 @@
                             <input type="checkbox" bind:checked="{noReprint}" class="checkbox">
                         </label>
                     </div>
-                {/if}
-            </div>
+                    <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">开启充电面板</span>
+                                    <input type="checkbox" bind:checked="{openElec}" class="checkbox">
+                                </label>
+                            </div>
+                        {/if}
+                    </div>
 
 
             <div class="flex w-52" use:archivePre={{callback, current, currentChildren}}>
