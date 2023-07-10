@@ -117,9 +117,9 @@
     $: autoSubmit = !!selectedTemplate?.submitCallback;
     function submitCallback() {
         selectedTemplate.videos = selectedTemplate?.files;
-        let dtime = null;
-        let noreprint = null;
-        let openelec = null;
+        let dtime = 0;
+        let noreprint = 0;
+        let openelec = 0;
         if (isDtime) {
             dtime = new Date(`${date} ${time}`).valueOf()/1000;
         }
