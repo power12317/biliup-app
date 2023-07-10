@@ -1,6 +1,6 @@
 {
   "package": {
-    "productName": "biliup-app-FavMod",
+    "productName": "biliup-app",
     "version": "0.4.1"
   },
   "build": {
@@ -58,7 +58,7 @@
     },
     "windows": [
       {
-        "title": "biliup",
+        "title": "biliup-app FavMod",
         "width": 930,
         "height": 600,
         "resizable": true,
