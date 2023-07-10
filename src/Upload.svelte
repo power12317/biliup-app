@@ -22,7 +22,7 @@
     let noReprint = false;
     let openElec = false;
     let isHiRes = selectedTemplate?.lossless_music === 0 ? 0 : 1;
-    //let isDolby = selectedTemplate?.dolby === 1 ? 1 : 0,
+    let isDolby = selectedTemplate?.dolby === 1 ? 1 : 0,
     function handleClick(e) {
         selectedTemplate.copyright = e.target.checked ? 2 : 1;
     }
@@ -143,7 +143,7 @@
             msg = '投稿';
             hires_params = { 
                         lossless_music: isHiRes ? 1 : 0,
-                        // dolby: isDolby ? 1 : 0,    
+                        dolby: isDolby ? 1 : 0,    
                             };
         }
         invoke(invokeMethod, {
@@ -479,7 +479,9 @@
             </div>
             {#if (!hiResFieldDisabled)}
             <div class="flex items-center">
-                <input type="checkbox" class="toggle my-2" bind:checked="{isHiRes}">
+                <input type="checkbox" class="toggle my-2" bind:checked="{isDolby}">
+                <span class="ml-2 text-sm font-bold text-gray-500 tracking-wide">杜比音效</span>
+                <input type="checkbox" class="toggle my-2 mx-3" bind:checked="{isHiRes}">
                 <span class="ml-2 text-sm font-bold text-gray-500 tracking-wide">Hi-Res无损音质</span>
             </div>
             {/if}

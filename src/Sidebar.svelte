@@ -92,7 +92,7 @@
             videos: [],
             open_subtitle: false,
             atomicInt: 0,
-            // dolby: 0,
+            dolby: 0,
             lossless_music: 1,
             no_reprint: 0,
             open_elec:0
