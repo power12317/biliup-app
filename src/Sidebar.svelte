@@ -112,7 +112,7 @@
     async function openConfigDir(){
         await open(await configDir()+'biliup');
     }
-    let lines = ['ws', 'qn', 'qnhk', 'auto', 'bda2', 'kodo', 'cos', 'cos-internal'];
+    let lines = ['ws', 'qn', 'qnhk', 'bldsa', 'auto', 'bda2', 'kodo', 'cos', 'cos-internal'];
     let line = 'auto';
     let limit = 3;
 
