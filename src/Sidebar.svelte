@@ -91,7 +91,11 @@
             },
             videos: [],
             open_subtitle: false,
-            atomicInt: 0
+            atomicInt: 0,
+            dolby: 0,
+            lossless_music: 0,
+            no_reprint: 0,
+            open_elec:0
         };
         // $currentTemplate = $template[name];
         await save_config((ret) => {
