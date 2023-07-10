@@ -21,6 +21,7 @@
     $ : nocopyright = selectedTemplate?.copyright === 2;
     let noReprint = false;
     let openElec = false;
+    let isHiRes = selectedTemplate?.lossless_music === 0 ? 0 : 1;
     function handleClick(e) {
         selectedTemplate.copyright = e.target.checked ? 2 : 1;
     }
@@ -202,6 +203,7 @@
         parent = detailParent;
         children = detailChildren;
     }
+
     if (selectedTemplate.dtime === 0) {
         selectedTemplate.dtime = null;
     }
@@ -228,7 +230,7 @@
         selectedTemplate.dtime = null;
     }
 
-    let isHiRes = selectedTemplate.lossless_music;
+    
     let hiResFieldDisabled = false;
     if (selected?.length > 2 && (selected.startsWith('av') || selected.startsWith('BV'))) {
         hiResFieldDisabled = true;
