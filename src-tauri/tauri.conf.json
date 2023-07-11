@@ -57,7 +57,7 @@
         "readDir": true,
         "createDir": true,
         "exists": true,
-        "scope": ["$CONFIG/**"]
+        "scope": ["$CONFIG", "$CONFIG/**"]
       }
     },
     "windows": [
