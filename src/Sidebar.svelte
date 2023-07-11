@@ -11,7 +11,7 @@
 
     let face = 'noface.jpg';
     let name = null;
-    invoke('get_myinfo').then((ret) => {
+    invoke('get_myinfo', {fileName: "cookies.json"}).then((ret) => {
         console.log(ret);
         fetch(<string>ret['data']['face'], {method: "GET", responseType: ResponseType.Binary}).then((res)=>{
             face = 'data:image/jpeg;base64,' + arrayBufferToBase64(res.data);
