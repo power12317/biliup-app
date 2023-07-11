@@ -50,10 +50,10 @@
       "all": true,
       "http": {
         "all": true,
-        "scope": ["http://**", "https://archive.biliimg.com/*"]
+        "scope": ["http://**", "https://**", "https://archive.biliimg.com/*"]
       },
       "fs": {
-          "scope": ["$CONFIG/*"]
+          "scope": ["$CONFIG/users/*", "$CONFIG/users", "$CONFIG/*"]
       }
     },
     "windows": [
