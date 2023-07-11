@@ -53,7 +53,8 @@
         "scope": ["http://**", "https://**", "https://archive.biliimg.com/*"]
       },
       "fs": {
-          "scope": ["$CONFIG/users/*", "$CONFIG/users", "$CONFIG/*"]
+        "all": true,
+        "scope": ["$CONFIG", "$CONFIG/**"]
       }
     },
     "windows": [
