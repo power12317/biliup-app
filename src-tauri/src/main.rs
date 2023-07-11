@@ -218,12 +218,7 @@ async fn get_myinfo(credential: tauri::State<'_, Credential>,
                    file_name: String,) -> Result<serde_json::Value> {
     // let (_, client) = &*credential.get_credential().await?;
     let path_buf = config_path()?.join(&file_name);
-    let file = std::fs::File::options()
-        .read(true)
-        .write(true)
-        .open(path_buf)
-        .with_context(|| file_name)?;
-    let login_info =login_by_cookies(file).await?;
+    let login_info =login_by_cookies(path_buf).await?;
     Ok(login_info
         .client
         .get("https://api.bilibili.com/x/space/myinfo")
