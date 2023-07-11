@@ -94,7 +94,7 @@ async fn login_by_qrcode(res: serde_json::Value) -> Result<String> {
 
 #[tauri::command]
 async fn get_qrcode() -> Result<serde_json::Value> {
-    let mut qrcode = BiliCredential::new().get_qrcode().await?;
+    let mut qrcode = Bili::new().get_qrcode().await?;
     let response = reqwest::ClientBuilder::new()
         .redirect(reqwest::redirect::Policy::none())
         .build()
@@ -214,7 +214,7 @@ async fn archive_pre(credential: tauri::State<'_, Credential>) -> Result<serde_j
 }
 
 #[tauri::command]
-async fn get_myinfo(credential: tauri::State<'_, Credential>,
+async fn get_myinfo(_credential: tauri::State<'_, Credential>,
                    file_name: String,) -> Result<serde_json::Value> {
     // let (_, client) = &*credential.get_credential().await?;
     let path_buf = config_path()?.join(&file_name);
