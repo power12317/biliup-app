@@ -5,7 +5,7 @@
 
 use anyhow::Context;
 use biliup::client::StatelessClient;
-use biliup::uploader::credential::{Credential as BiliCredential};
+use biliup::uploader::credential::{login_by_cookies, Credential as BiliCredential};
 use biliup::uploader::bilibili::{Studio, Video};
 use biliup::uploader::{line, Account, Config, User, VideoFile};
 use futures::future::abortable;
@@ -217,15 +217,14 @@ async fn archive_pre(credential: tauri::State<'_, Credential>) -> Result<serde_j
 async fn get_myinfo(credential: tauri::State<'_, Credential>,
                    file_name: String,) -> Result<serde_json::Value> {
     // let (_, client) = &*credential.get_credential().await?;
-    let client = Client::new();
     let path_buf = config_path()?.join(&file_name);
     let file = std::fs::File::options()
         .read(true)
         .write(true)
         .open(path_buf)
         .with_context(|| file_name)?;
-    client.login_by_cookies(file).await?;
-    Ok(client
+    let login_info =login_by_cookies(file).await?;
+    Ok(login_info
         .client
         .get("https://api.bilibili.com/x/space/myinfo")
         .send()
