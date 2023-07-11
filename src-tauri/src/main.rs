@@ -94,7 +94,7 @@ async fn login_by_qrcode(res: serde_json::Value) -> Result<String> {
 
 #[tauri::command]
 async fn get_qrcode() -> Result<serde_json::Value> {
-    let mut qrcode = Bili::new().get_qrcode().await?;
+    let mut qrcode = BiliCredential::new().get_qrcode().await?;
     let response = reqwest::ClientBuilder::new()
         .redirect(reqwest::redirect::Policy::none())
         .build()
