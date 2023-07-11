@@ -54,9 +54,6 @@
       },
       "fs": {
         "all": true,
-        "readDir": true,
-        "createDir": true,
-        "exists": true,
         "scope": ["$CONFIG", "$CONFIG/**"]
       }
     },
