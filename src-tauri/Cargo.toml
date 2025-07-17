@@ -33,3 +33,6 @@ bytes = "1.4.0"
 [features]
 default = [ "custom-protocol" ]
 custom-protocol = [ "tauri/custom-protocol" ]
+
+[patch.crates-io]
+time = { version = "0.3.36" }
